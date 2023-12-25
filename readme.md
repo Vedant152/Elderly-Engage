@@ -34,3 +34,5 @@ They can contact the team or the administrator by visiting the "contact us" sect
 ![code](https://github.com/Vedant152/Elderly-Engage/assets/123807505/8b35d3f1-2640-4db2-9dfd-5cbaaa81c704)
 
 ![Code2](https://github.com/Vedant152/Elderly-Engage/assets/123807505/b6e60b86-017f-4fc4-9a2e-70d5a40842a4)
+
+![html](https://github.com/Vedant152/Elderly-Engage/assets/123807505/dbd800ca-fe6d-4ff1-b91e-0765a72b40c7)
