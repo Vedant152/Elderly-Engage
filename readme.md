@@ -27,9 +27,10 @@ This is the home page.
 The user can view its data and registered events on this profile page.
 ![profile](https://github.com/Vedant152/Elderly-Engage/assets/123807505/89df5b8b-cd9b-4753-884e-95f4f6839390)
 
-
+This is an explore page where users can register for events that interest them and view the forthcoming activities.
 ![Capture](https://github.com/Vedant152/Elderly-Engage/assets/123807505/26c76fea-46f2-4e02-a910-fee07f4284c0)
 
+These are the backend screenshots that demonstrate the backend data storage system.
 ![Backend1](https://github.com/Vedant152/Elderly-Engage/assets/123807505/8aa08ea7-c485-465d-9c38-fdbbf8ecb6f3)
 
 ![Backend2](https://github.com/Vedant152/Elderly-Engage/assets/123807505/54f9893e-59c7-4218-92f1-9df9d387187a)
@@ -40,4 +41,5 @@ The user can view its data and registered events on this profile page.
 
 ![Code2](https://github.com/Vedant152/Elderly-Engage/assets/123807505/b6e60b86-017f-4fc4-9a2e-70d5a40842a4)
 
+This is a screenshot of a templete with text developed using HTML and CSS.
 ![html](https://github.com/Vedant152/Elderly-Engage/assets/123807505/dbd800ca-fe6d-4ff1-b91e-0765a72b40c7)
