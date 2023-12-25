@@ -1,0 +1,114 @@
+{% extends 'base.html' %} {% load static %} {% block css %}
+<style>
+    .main-container {
+        width: 70%;
+        margin: 1rem auto;
+        margin-bottom: 3rem;
+        font-size: 1.35rem;
+        color: rgb(51, 37, 37);
+        line-height: 1.75rem;
+        text-align: justify;
+    }
+
+    .page-title {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    .dp-image {
+        width: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        object-fit: contain;
+    }
+
+    .information-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    table td {
+        padding: 1rem;
+    }
+    td:first-child {
+        font-size: 1.4rem;
+        font-weight: 600;
+        width: 300px;
+    }
+    td:last-child {
+        font-size: 1.4rem;
+        min-width: 300px;
+    }
+
+    .button-styled {
+        padding: 0.5rem 0.75rem;
+        outline: none;
+        border: 1px solid black;
+        font-size: 1.45rem;
+        background-color: transparent;
+        border-radius: 10px;
+        transition: all 1s;
+        margin-block: 1rem;
+    }
+    .button-styled:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        transition: all 0.5s;
+    }
+    td[colspan="2"]{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        outline: 1px solid red;
+    }
+</style>
+{% endblock %} {% block content %}
+
+<div class="main-container">
+    <section class="page-title">Event Page</section>
+    <section class="information-wrapper">
+        <table>
+            <thead></thead>
+            <tbody>
+                <tr>
+                    <td>Event name</td>
+                    <td>{{ event.event_name }}</td>
+                </tr>
+                <tr>
+                    <td>Event description</td>
+                    <td>{{ event.event_description }}</td>
+                </tr>
+                <tr>
+                    <td>Date</td>
+                    <td>{{ event.event_date }}</td>
+                </tr>
+                <tr>
+                    <td>Start time</td>
+                    <td>{{ event.event_starttime }}</td>
+                </tr>
+                <tr>
+                    <td>End time</td>
+                    <td>{{ event.event_endtime }}</td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>
+                        <p>{{event.event_venue}},</p>
+                        <p>{{event.event_area}},</p>
+                        <p>{{event.event_city}} - {{event.event_pincode}}</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <form method="POST" action="">
+                {% csrf_token %}
+                <button class="button-styled">Register Now</button>
+            </form>
+        </div>
+    </section>
+</div>
+{% endblock %}

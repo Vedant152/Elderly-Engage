@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Elderly Engage</title>
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="{% static 'style.css' %}"
+        />
+        {% block css %}
+
+        {% endblock %}
+    </head>
+    <body>
+        <section class="navbar">
+            <section class="title-text"><a href="{% url 'home' %}">Elderly Engage</a></section>
+            <section class="nav-link-container">
+                <a href="{% url 'explore' %}">Explore</a>
+                <a href="{% url 'about' %}">About us</a>
+                <a href="{% url 'contact' %}">Contact us</a>
+                <a href="{% url 'profile' %}">Profile</a>
+            </section>
+        </section>
+
+        <main class="">
+            {% block content %}
+            
+            {% endblock %}
+        </main>
+
+        {% block 'footer' %}
+        <section class="footer">
+            <p>@Elderly_Engage</p>
+            <br/>
+            <p>
+                <a href="{% url 'contact' %}">Contact us</a>
+                &nbsp;|&nbsp;
+                <a href="{% url 'about' %}">About us</a>
+            </p>
+        </section>
+        {% endblock%}
+    </body>
+</html>

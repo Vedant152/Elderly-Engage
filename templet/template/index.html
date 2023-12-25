@@ -1,0 +1,70 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block css %}
+    <style>
+        .button-styled{
+            padding: 0.5rem 0.75rem;
+            outline: none;
+            border: 1px solid black;
+            font-size: 1.45rem;
+            background-color: transparent;
+            border-radius: 10px;
+            transition: all 1s;
+        }
+        .button-styled:hover{
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            transition: all 0.5s;
+        }
+        </style>
+{% endblock %}
+
+{% block content %} 
+<div class="hero-container">
+    <section class="hero-text-container">
+        Welcome to
+        <p class="hero-special-font">Elderly Engage</p>
+        <p class="hero-text">
+            We're here to guide you toward enriching activities around you.
+            Embrace the best in life, find meaningful connections, and make
+            every moment count!
+        </p>
+        
+        {% if not request.user.is_authenticated %}
+        <a href="{% url 'explore' %}">
+            <button class="button-styled">Sign Up</button>
+        </a>
+        {% else %}
+        <a href="{% url 'explore' %}">
+            <button class="button-styled">Explore</button>
+        </a>
+        {% endif %}
+    </section>
+    <section class="hero-image-container">
+        <img
+            width="500px"
+            src='{% static "assets/images/hero1.png" %}'
+            alt="hero image"
+        />
+    </section>
+</div>
+<div class="hero-container" style="flex-direction: row-reverse">
+    <section class="hero-text-container">
+        Let's make memories
+        <p class="hero-text">
+            Enrich your life with meaningful connections. Your gateway to events
+            tailored for seniors. Join our community and discover purposeful
+            activities, cherishing every moment together.
+        </p>
+    </section>
+    <section class="hero-image-container">
+        <img
+            width="500px"
+            src='{% static "assets/images/hero2.png" %}'
+            alt="hero image"
+        />
+    </section>
+</div>
+
+{% endblock %}

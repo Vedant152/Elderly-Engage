@@ -1,0 +1,156 @@
+{% extends 'base.html' %} {% load static %} {% block css %}
+<style>
+    .main-container {
+        width: 70%;
+        margin: 1rem auto;
+        margin-bottom: 3rem;
+        font-size: 1.35rem;
+        color: rgb(51, 37, 37);
+        line-height: 1.75rem;
+        text-align: justify;
+    }
+
+    .page-title {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    .dp-image {
+        width: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        object-fit: contain;
+    }
+
+    .information-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .information-wrapper > *:first-child {
+        flex: 1;
+    }
+    .information-wrapper > *:last-child {
+        flex: 2;
+    }
+    .information table td {
+        padding: 1rem;
+        font-size: 1.4rem;
+    }
+    .information td:first-child {
+        font-size: 1.4rem;
+        font-weight: 600;
+    }
+
+    .button-styled {
+        margin-block: 2rem;
+        padding: 0.5rem 0.75rem;
+        outline: none;
+        border: 1px solid black;
+        font-size: 1.45rem;
+        background-color: white;
+        border-radius: 10px;
+        transition: all 1s;
+    }
+    .button-styled:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        transition: all 0.5s;
+    }
+    tr:has(td:empty){
+        display: none;
+    }
+    h3{
+        margin-top: 2rem;
+        text-align: center;
+    }
+    table{
+        margin: auto auto;
+    }
+    table td{
+        padding: 0.5rem;
+    }
+</style>
+{% endblock %} {% block content %}
+
+<div class="main-container">
+    <section class="page-title">Profile Page</section>
+    <section class="information-wrapper">
+        <section class="picture-wrapper">
+            {% if person.gender == 'male' %}
+            <img
+                class="dp-image"
+                src="{% static 'assets/images/dp-male.png' %}"
+            />
+            {% else %}
+            <img
+                class="dp-image"
+                src="{% static 'assets/images/dp-female.png' %}"
+            />
+            {% endif %}
+        </section>
+        <section class="information">
+            <table>
+                <thead></thead>
+                <tbody>
+                    <tr>
+                        <td>Name</td>
+                        <td>{{ person.name }}</td>
+                    </tr>
+                    <tr>
+                        <td>About me</td>
+                        <td>{{ person.about }}</td>
+                    </tr>
+                    <tr>
+                        <td>Gender</td>
+                        <td>{{ person.gender }}</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>{{ person.email }}</td>
+                    </tr>
+                    <tr>
+                        <td>Phone</td>
+                        <td>{{ person.phone }}</td>
+                    </tr>
+                    <tr>
+                        <td>Address</td>
+                        <td>
+                            <p>{{person.area}},</p>
+                            <p>{{person.city}} - {{person.pincode}}</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </section>
+    {% if events|length %}
+    <h3>Your Registerations</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td>Name</td>
+                <td>Date</td>
+                <td>Start Time</td>
+                <td>End Time*</td>
+            </tr>
+            {% for event in events %}
+                    <tr>
+                        <td><a href="{% url 'event' event.event.id %}">{{ event.event.event_name|truncatechars:20 }}</a></td>
+                        <td>{{ event.event.event_date }}</td>
+                        <td>{{ event.event.event_starttime }}</td>
+                        <td>{{ event.event.event_endtime }}</td>
+                    </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    <div align="center">
+        <a href="{% url 'logout' %}">
+            <button class="button-styled">Logout</button>
+        </a>
+    </div>
+</div>
+{% endblock %}

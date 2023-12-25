@@ -1,0 +1,119 @@
+{% extends 'base.html' %} 
+{% block css %}
+<style>
+
+.main-container{
+    width: 70%;
+    margin: 1rem auto;
+    margin-bottom: 3rem;
+    font-size: 1.35rem;
+    color: rgb(51, 37, 37);
+    line-height: 1.75rem;
+    text-align: justify;
+}
+
+.page-title{
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.heading{
+    font-size: 1.35rem;
+    font-weight: 600;
+    padding-bottom: 0.3rem;
+}
+
+.contain-subheadings > div > p:last-child{
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+}
+
+.subheading{
+    color:black;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+</style>
+{% endblock %} 
+{% block content %}
+
+<div class="main-container">
+    <section class="page-title">About us</section>
+    <section class="content-container">
+        Welcome to <i>Elderly Engage</i>, a nonprofit dedicated to fostering
+        vibrant connections among seniors. Our mission is to bring together
+        older individuals, providing a haven where they can banish boredom and
+        embrace the joy of shared activities.
+
+        <br/>
+        <br/>
+        <p class="heading">Our Vision</p>
+        <p>
+            We envision a community where seniors find purpose, camaraderie, and
+            fulfillment through engaging activities. At <i>Elderly Engage</i>, we believe in creating an environment that celebrates the
+            wisdom and experiences of our elder community.
+        </p>
+
+        <br/>
+        <br/>
+
+        <p class="heading">Why We Exist</p>
+        <p>
+            Loneliness and boredom should have no place in the lives of our
+            seniors. <i>Elderly Engage</i> was founded with the sole
+            purpose of alleviating these challenges. We understand the
+            importance of social and health activities in enhancing the quality
+            of life for older individuals.
+        </p>
+
+        <br/>
+        <br/>
+
+        <p class="heading">Our Commitment</p>
+        <p>
+            As a nonprofit, our commitment is to curate and update a diverse
+            range of activities that cater specifically to the interests and
+            needs of seniors. From health-focused initiatives to social
+            gatherings, we strive to provide a holistic platform that nurtures
+            both the body and soul.
+        </p>
+
+        <br/>
+        <br/>
+
+        <p class="heading">What Sets Us Apart</p>
+        <div class="contain-subheadings">
+            <div>
+                <p class="subheading">Tailored Activities:</p>
+                <p>
+                    Our team meticulously designs activities with seniors in
+                    mind, ensuring they are enjoyable, accessible, and
+                    contribute to well-being.
+                </p>
+            </div>
+
+            <div>
+                <p class="subheading">Regular Updates:</p>
+                <p>
+                    Stay connected with a dynamic calendar of events. We
+                    consistently refresh our offerings, keeping our community
+                    excited about the multitude of possibilities.
+                </p>
+            </div>
+
+            <div>
+                <p class="subheading">A Community Hub:</p>
+                <p>
+                    Elderly Engage is more than just activities; it's a
+                    place to forge new friendships, share stories, and create
+                    lasting memories. Our community is the heart of what we do.
+                </p>
+            </div>
+        </div>
+
+        Join us in building a community that celebrates life at every stage!
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends 'base.html' %} 
+{% block css %}
+<style>
+    .main-container {
+        width: 70%;
+        margin: 1rem auto;
+        margin-bottom: 3rem;
+        font-size: 1.35rem;
+        color: rgb(51, 37, 37);
+        line-height: 1.75rem;
+        text-align: justify;
+    }
+
+    .page-title {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    .button-styled {
+        margin-block: 0.25rem;
+        padding: 0.5rem 0.75rem;
+        outline: none;
+        border: 1px solid black;
+        font-size: 1.45rem;
+        background-color: transparent;
+        border-radius: 10px;
+        transition: all 1s;
+    }
+    .button-styled:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        transition: all 0.5s;
+    }
+    .cards-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .card {
+        border: 2px solid black;
+        padding: 1rem;
+        margin: 0rem 0.75rem;
+        margin-bottom: 1rem;
+        margin-top: 0.5rem;
+        border-radius: 10px;
+    }
+
+    .card:hover {
+        border: 2px solid rgb(255, 0, 0);
+        background-color: rgb(251, 253, 230);
+    }
+
+    .card > * {
+        padding: 0.25rem;
+    }
+</style>
+{% endblock %} 
+
+
+{% block content %}
+<div class="main-container">
+    <section class="page-title">Explore</section>
+    <section class="content-container">
+        <h4>Health related activities around you</h4>
+        <div class="cards-container">
+            {% for event in health %}
+            <div class="card">
+                <div>Event Name: {{ event.event_name|truncatechars:20 }}</div>
+                <div>Area: {{event.event_area|truncatechars:20}}</div>
+                <div>City: {{event.event_city}}</div>
+                <div>Date: {{event.event_date}}</div>
+                <div>Start Time: {{event.event_starttime}}</div>
+                <div align="center">
+                    <a href="{% url 'event' event.id %}"><button class="button-styled">Register</button></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    <section class="content-container">
+        <h4>Social activities around you</h4>
+        <div class="cards-container">
+            {% for event in social %}
+            <div class="card">
+                <div>Event Name: {{ event.event_name|truncatechars:20 }}</div>
+                <div>Area: {{event.event_area|truncatechars:20}}</div>
+                <div>City: {{event.event_city}}</div>
+                <div>Date: {{event.event_date}}</div>
+                <div>Start Time: {{event.event_starttime}}</div>
+                <div align="center">
+                    <a href="{% url 'event' event.id %}"><button class="button-styled">Register</button></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% endblock %}

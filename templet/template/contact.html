@@ -1,0 +1,244 @@
+{% extends 'base.html' %} {% block css %}
+<style>
+    .main-container {
+        width: 70%;
+        margin: 1rem auto;
+        margin-bottom: 3rem;
+        font-size: 1.35rem;
+        color: rgb(51, 37, 37);
+        line-height: 1.75rem;
+        text-align: justify;
+    }
+
+    .page-title {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    .heading {
+        font-size: 1.35rem;
+        font-weight: 600;
+        padding-bottom: 0.3rem;
+    }
+
+    table {
+        margin-inline: auto;
+        width: 80%;
+    }
+
+    td {
+        padding: 1rem;
+        height: 2rem;
+        min-width: 250px;
+    }
+    td > input {
+        height: 2.5rem;
+        padding: 0.5rem;
+        width: 400px;
+        font-size: 1.35rem;
+    }
+
+    textarea {
+        width: 100%;
+        min-height: 6rem;
+        font-size: 1.35rem;
+        resize: vertical;
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .button-styled {
+        padding: 0.5rem 0.75rem;
+        outline: none;
+        border: 1px solid black;
+        font-size: 1.45rem;
+        background-color: white;
+        border-radius: 10px;
+        transition: all 1s;
+    }
+    .button-styled:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        transition: all 0.5s;
+    }
+    .form-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    input[type="radio"] {
+        width: 20px;
+        height: 20px;
+    }
+</style>
+{% endblock %} {% block content %}
+
+<div class="main-container">
+    <section class="page-title">Contact us</section>
+    <section class="content-container">
+        Thank you for your interest in Elderly Engage. We value your inquiries
+        and feedback. Please feel free to reach out to us using the following
+        contact information:
+
+        <br />
+        <br />
+        <p class="heading">General Inquiries:</p>
+        <div>
+            <span class="label">Email</span>:
+            <span class="value"
+                ><a href="mailto:info@elderlyengage.org"
+                    >info@elderlyengage.org</a
+                ></span
+            >
+            <br />
+            <span class="label">Phone</span>:
+            <span class="value">+91 12345 67890</span>
+        </div>
+
+        <br />
+        <br />
+        <p class="heading">Address:</p>
+        <div>
+            <p>Yeshwantrao chavan college of engineering,</p>
+            <p>Wanadongri, Nagpur</p>
+            <p>Maharashtra - 441110</p>
+        </div>
+
+        <br />
+        <br />
+        {% if request.user.is_authenticated %}
+        <hr />
+        <br />
+        <br />
+        <form action="" method="post" id="form">
+            {% csrf_token %}
+            <div class="form-wrapper">
+                <h1>Request an event</h1>
+                <p>
+                    Make a request to add an event to the site so that people
+                    get know.
+                </p>
+                <br />
+
+                <table>
+                    <thead></thead>
+                    <tbody>
+                        <tr>
+                            <td>Event Name:</td>
+                            <td><input type="text" name="eventname" required /></td>
+                        </tr>
+                        <tr>
+                            <td>Type:</td>
+                            <td>
+                                <div style="display: flex; gap: 2rem">
+                                    <div>
+                                        <input
+                                            id="health"
+                                            type="radio"
+                                            name="eventtype"
+                                            value="health"
+                                            required
+                                        /><label for="health">Health</label>
+                                    </div>
+                                    <div>
+                                        <input
+                                            id="social"
+                                            type="radio"
+                                            name="eventtype"
+                                            value="social"
+                                            required
+                                        /><label for="social">Social</label>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr rowspan="3">
+                            <td><label>Place: </label></td>
+                            <td>
+                                <input
+                                    type="text"
+                                    placeholder="Venue"
+                                    name="venue"
+                                />
+                                <input
+                                    type="text"
+                                    name="area"
+                                    required
+                                    placeholder="Street / Area / Locality"
+                                />
+                                <input
+                                    type="text"
+                                    name="city"
+                                    required
+                                    placeholder="City"
+                                />
+                                <input
+                                    type="number"
+                                    name="pincode"
+                                    required
+                                    placeholder="Pincode"
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Date: </label></td>
+                            <td><input type="date" name="eventdate" required /></td>
+                        </tr>
+                        <tr>
+                            <td><label>Start Time: </label></td>
+                            <td><input type="time" name="starttime" required /></td>
+                        </tr>
+                        <tr>
+                            <td><label>Expected End Time: </label></td>
+                            <td><input type="time" name="endtime" required /></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <label>Desciption: </label><br />
+                                <textarea
+                                    name="description"
+                                    placeholder="write a brief description"
+                                ></textarea>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button align="center" class="button-styled">
+                    Make a request
+                </button>
+            </div>
+        </form>
+        {% endif %}
+    </section>
+</div>
+
+<script>
+    const form = document.getElementById("form");
+
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData = new FormData(form);
+        const token = document.querySelector(
+            'input[name="csrfmiddlewaretoken"]'
+        ).value;
+        fetch("/contact", {
+            method: "POST",
+            body: formData,
+        })
+            .then((res) => {
+                return res.json();
+            })
+            .then((data) => {
+                if (data.status === "401") {
+                    throw new Error("");
+                }
+                document.querySelector('.form-wrapper').innerHTML = `Request made successfully!`;
+            })
+            .catch((error) => {
+                document.querySelector('.form-wrapper').innerHTML = `Something went wrong! You can mail us.`;
+            });
+    });
+</script>
+{% endblock %}

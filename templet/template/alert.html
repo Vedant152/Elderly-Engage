@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <style>
+        main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap:2rem;
+            margin-block: 3rem;
+        }
+        #image-alert{
+            width: 400px;
+            height: 400px;
+            object-fit: contain;
+            border-radius: 20px;
+        }
+
+        h3:empty{
+            display: none;
+        }
+        .button-styled{
+            padding: 0.5rem 0.75rem;
+            outline: none;
+            border: 1px solid black;
+            font-size: 1.45rem;
+            background-color: transparent;
+            border-radius: 10px;
+            transition: all 1s;
+        }
+        .button-styled:hover{
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            transition: all 0.5s;
+        }
+    </style>
+
+{% endblock %}
+
+{% block content %}
+    <h1>{{ alert_type }}</h1>
+    <h3>{{ message }}</h3>
+    <img src="{% static image %}" id="image-alert" alt="image" />
+
+    {% if login %}
+    <a href="{% url 'login' %}">
+        <button class="button-styled">
+            Login
+        </button>
+    </a>
+    {% endif %}
+
+{% endblock %}
