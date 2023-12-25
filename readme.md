@@ -31,7 +31,7 @@ This is an explore page where users can register for events that interest them a
 ![Capture](https://github.com/Vedant152/Elderly-Engage/assets/123807505/26c76fea-46f2-4e02-a910-fee07f4284c0)
 
 These are the backend screenshots that demonstrate the backend data storage system.
-![Backend1](https://github.com/Vedant152/Elderly-Engage/assets/123807505/8aa08ea7-c485-465d-9c38-fdbbf8ecb6f3)
+![backend](https://github.com/Vedant152/Elderly-Engage/assets/123807505/e094d1fe-4856-4eb5-af84-84aa4d3eec06)
 
 ![Backend2](https://github.com/Vedant152/Elderly-Engage/assets/123807505/54f9893e-59c7-4218-92f1-9df9d387187a)
 
