@@ -25,7 +25,7 @@ This is the home page.
 ![Home](https://github.com/Vedant152/Elderly-Engage/assets/123807505/e6b90f3e-042c-4092-babd-78d7252a4822)
 
 The user can view its data and registered events on this profile page.
-![profile](https://github.com/Vedant152/Elderly-Engage/assets/123807505/89df5b8b-cd9b-4753-884e-95f4f6839390)
+![Profile1](https://github.com/Vedant152/Elderly-Engage/assets/123807505/c205d203-a829-411b-8067-2fbfca43493d)
 
 This is an explore page where users can register for events that interest them and view the forthcoming activities.
 ![Capture](https://github.com/Vedant152/Elderly-Engage/assets/123807505/26c76fea-46f2-4e02-a910-fee07f4284c0)
