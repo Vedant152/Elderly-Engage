@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.outline {
+    outline: 1px solid red;
+}
+
+/* Navbar starts */
+
+.navbar {
+    width: 80%;
+    margin-block: 1rem;
+    margin-inline: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .title-text {
+    flex: 1;
+    font-size: 3rem;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+}
+
+.navbar .nav-link-container {
+    flex: 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+.navbar .nav-link-container a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    font-size: 1.35rem;
+    transition: all 0.5s;
+}
+
+.navbar .nav-link-container a:hover {
+    color: rgb(255, 0, 0);
+    transition: all 0.3s;
+}
+
+/* Navbar ends */
+
+/* footer starts */
+.footer {
+    text-align: center;
+    padding: 3rem;
+    background-color: rgb(216, 216, 216);
+}
+
+/* footer ends */
+
+/* main starts */
+main {
+    width: 80%;
+    margin: 2rem auto;
+    min-height: 70vh;
+}
+
+main .hero-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-block: 2rem;
+    min-height: 78vh;
+}
+
+/* main ends */
+
+/* button */
+
+/* Button ends */
+
+/* Other css */
+
+.hero-special-font {
+    color: rgb(211, 197, 0);
+}
+
+.hero-container .hero-text-container {
+    flex: 1;
+    color: brown;
+    font-size: 3.5rem;
+    padding-inline: 3rem;
+}
+
+.hero-container .hero-text-container .hero-text {
+    font-size: 1.75rem;
+    line-height: 2rem;
+    padding-top: 2rem;
+    color: black;
+}
+
+.hero-container .hero-image-container {
+    flex: 1;
+    width: 500px !important;
+}
